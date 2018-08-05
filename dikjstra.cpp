@@ -194,6 +194,7 @@ class ShortestPath
        int numOfVertices;   // number of nodes  
    public:
        ShortestPath(graph* g_ptr);
+       ~ShortestPath();
        void pathGen(int src);  // getting the shortest path and path cost from node src to the rest of nodes
        float path_size(int v, int w); // return the shortest path size between node v and node w
        float aver_path_size(int v);  // return the average shortest path between node v and the rest of nodes
@@ -213,6 +214,11 @@ ShortestPath::ShortestPath(graph* g_ptr)
     {
         this->distance.push_back(FloatMax); // the shortest path from srcNode to the rest of nodes
     }
+}
+
+ShortestPath::~ShortestPath()
+{
+
 }
 
 void ShortestPath::pathGen(int src)
